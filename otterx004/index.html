@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#000000">
+  <title>OTTERX004 Camera</title>
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body data-vessel="otterx004">
+  <main class="camera-view">
+    <section class="stream-layer active" data-stream="front" aria-hidden="false">
+      <video playsinline muted autoplay aria-label="Front camera stream"></video>
+    </section>
+    <section class="stream-layer" data-stream="rear" aria-hidden="true">
+      <video playsinline muted autoplay aria-label="Rear camera stream"></video>
+    </section>
+    <div class="stream-message" id="stream-message" hidden>
+      <strong></strong>
+      <span></span>
+    </div>
+    <nav class="view-switcher" aria-label="Select camera view">
+      <a class="vessel" href="../" title="All vessels">OTTERX004</a>
+      <button type="button" class="active" data-camera="front" aria-pressed="true">Front</button>
+      <button type="button" data-camera="rear" aria-pressed="false">Rear</button>
+      <span class="divider" aria-hidden="true"></span>
+      <button type="button" id="aspect-toggle" aria-pressed="true">Keep ratio</button>
+      <button type="button" id="logout" class="hide-sm" title="Sign out">Sign out</button>
+    </nav>
+    <div class="login" id="login" hidden>
+      <form autocomplete="on">
+        <h1>OTTERX004 cameras</h1>
+        <p>Sign in with the video server account.</p>
+        <p class="error" id="login-error" hidden></p>
+        <label>Username <input name="user" autocomplete="username" required></label>
+        <label>Password <input name="pass" type="password" autocomplete="current-password" required></label>
+        <label class="remember"><input name="remember" type="checkbox" checked> Remember on this device</label>
+        <button type="submit">Sign in</button>
+      </form>
+    </div>
+  </main>
+  <script src="../assets/camera.js"></script>
+</body>
+</html>
