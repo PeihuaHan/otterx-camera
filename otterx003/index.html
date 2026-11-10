@@ -20,13 +20,20 @@
       <span></span>
     </div>
     <nav class="view-switcher" aria-label="Select camera view">
-      <a class="vessel" href="../" title="All vessels">OTTERX003</a>
       <button type="button" class="active" data-camera="front" aria-pressed="true">Front</button>
       <button type="button" data-camera="rear" aria-pressed="false">Rear</button>
       <span class="divider" aria-hidden="true"></span>
       <button type="button" id="aspect-toggle" aria-pressed="true">Keep ratio</button>
-      <button type="button" id="logout" class="hide-sm" title="Sign out">Sign out</button>
     </nav>
+    <button type="button" id="logout" class="corner-button" title="Sign out">Sign out</button>
+    <div class="latency-bar" id="latency" aria-live="off" hidden>
+      <div class="lat-item" title="Edge (vessel) to cloud video server, reported over MQTT"><span>Edge→Cloud</span><b data-lat="edge">–</b></div>
+      <div class="lat-item" title="Cloud to this browser: half the WebRTC round-trip time"><span>Network</span><b data-lat="network">–</b></div>
+      <div class="lat-item" title="Jitter buffer delay (packet jitter in brackets)"><span>Jitter buf</span><b data-lat="jitter">–</b></div>
+      <div class="lat-item" title="Frame decode time in the browser"><span>Decode</span><b data-lat="decode">–</b></div>
+      <div class="lat-item" title="Browser render/compositing to screen"><span>Display</span><b data-lat="display">–</b></div>
+      <div class="lat-item total" title="Sum of the above. Camera capture and encode on the vessel are not included."><span>Total</span><b data-lat="total">–</b></div>
+    </div>
     <div class="login" id="login" hidden>
       <form autocomplete="on">
         <h1>OTTERX003 cameras</h1>
@@ -39,6 +46,8 @@
       </form>
     </div>
   </main>
+  <script src="https://cdn.jsdelivr.net/npm/mqtt@5.10.1/dist/mqtt.min.js"></script>
   <script src="../assets/camera.js"></script>
+  <script src="../assets/latency.js"></script>
 </body>
 </html>
